@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div class="chat">
+      <div class="chat__sidebar">
+        <h2 class="room-title"></h2>
+        <h3 class="list-title"></h3>
+        <ul class="users"></ul>
+      </div>
+      <div class="chat__main">
+        <!-- Este solo es un lugar para poder desplegar 
+        los mensajes. PERO NO ESCRIBIREMOS NADA DENTRE DE 
+        ESTE ELEMENTO, YA QUE LOS MENSAJES (TEMPLATE 
+        DE UN ELEMENTO HTML GENÉRICO) SERÁN COLOCADOS 
+        DINÁMICAMENTE. -->
+        <div id="messages" class="chat__messages"></div>
+
+        <div class="compose">
+          <form id="message-form">
+            <input name="message" type="text" placeholder="Message" autocomplete="off" >
+            <button name="submitButton" type="submit">Send</button>
+          </form>
+    
+          <button class="send-location">Send location</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Un template tiene que ser definido dentro
+    de un html tag script. INCLUIR EL ATRIBUTO id
+    PARA REFERENCIAR DICHO TEMPLATE DESDE chat.js, 
+    y EL ATRIBUTO type CUYO VALOR TIENE QUE SER 
+    "text/html".
+        
+    Despues de definir nuestro template lo podemos 
+    renderizar en nuestra aplicación -->
+    <script id="messageTemplate" type="text/html">
+      <div>
+        <p>This is a message</p>
+      </div>
+    </script>
+
+    <!-- Mustache es una librería que nos ayudará 
+    a renderizar nuestros templates, ES DECIR 
+    CREAR Y RENDERIZAR NUESTRO CONTENIDO DINÁMICO -->
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <!-- La librería moment NOS AYUDARÁ PARA 
+    MANIPULAR EL TIEMPO Y MOSTRAR, EN LA VENTANA 
+    DEL BUSCADOR, CUANDO ES QUE UN MENSAJE FUE 
+    ENVÍADO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <!-- La librería qs (query string) NOS AYUDARÁ 
+    PARA CREAR ROOMNAMES Y USERNAMES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.13.0/qs.min.js"></script>
+    <!-- ESTO ES EL CODIGO CLIENT-SIDE JS QUE ES 
+    CREADO POR SOCKET.IO CUANDO CONFIGURAMOS 
+    NUESTRO SERVIDOR PARA QUE TRABAJE CON SOCKET.IO
+
+    Le permite a un cliente conectarse a nuestro 
+    servidor desde un buscador -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- SE TIENE QUE CARGAR OTRO ARCHIVO DE CLIENT 
+    SIDE JS OBLIGATORIAMENTE PARA QUE TENGA ACCESO 
+    AL CÓDIGO ESCRITO EN /socket.io/socket.io.js-->
+    <script src="/js/chat.js"></script>
+  </body>
+</html>

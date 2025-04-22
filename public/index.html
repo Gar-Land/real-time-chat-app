@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div class="centered-form">
+      <div class="centered-form__box">
+      	<h1>Join</h1>
+      	<!-- PARA QUE ESTA FORMA TE REDIRIJA 
+      	HACIA EL CHAT ROOM DESEADO tienes que 
+      	AJUSTAR EL SIGUIENTE ARIBUTO, de la  
+      	html tag form, ACTION AL VALOR 
+      	"/chat.html" QUE INDICARÁ A QUÉ PÁGINA 
+      	NOS REDIRIGIRÁ -->
+      	<form action="/chat.html">
+        	<label>Display name</label>
+        	<input type="text" name="username" placeholder="Display name" required autocomplete="off">
+        	<label>Room</label>
+        	<input type="text" name="room" placeholder="Room" required autocomplete="off">
+        	<button>Join</button>
+      	</form>
+    	</div>
+    </div>
+	</body>
+</html>
